@@ -1,0 +1,29 @@
+library(tidyverse)
+## Summarizing the Taco dataset
+
+data <- read_csv("taco.csv")
+
+
+glimpse(data)
+
+ggplot(data = data)
+
+ggplot(data)
+
+ggplot(
+  data = data,
+  mapping = aes(x = Distance, y = Tip)
+)
+
+
+ggplot(
+  data = data,
+  mapping = aes(x = Distance, y = Tip)
+)+
+  geom_point()
+
+ggplot(
+  data = data,
+  mapping = aes(x = Distance, y = Tip, color = Taco_Size)
+) +
+  geom_point()
