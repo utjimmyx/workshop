@@ -1,5 +1,6 @@
 ---
-title: "About me"
+title: "CSUB Business Analytics Mini-bootcamp Lab 1 - About me"
+author: your name here
 format: html
 editor: visual
 date: "2026-06-01"
