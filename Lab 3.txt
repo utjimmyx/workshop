@@ -1,0 +1,54 @@
+---
+title: "CSUB Business Analytics Mini-bootcamp Lab 2 - Analyzing the effectiveness of advertising campaigns"
+format: html
+author: ### 
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. 
+
+## Data
+
+We will be using a dataset that is hosted on my Github website. 
+
+You can embed code like this:
+
+```{r}
+library(readr)
+library(readr)
+ad_sales <- read_csv('https://raw.githubusercontent.com/utjimmyx/regression/master/advertising.csv')
+plot(sales ~ TV, data = ad_sales)
+```
+
+# Now let's fit a linear model with TV advertising as a predictor.
+
+```{r}
+
+fit <- lm(sales ~ TV, data = ad_sales)
+summary(fit)
+
+```
+
+#### Question 2:Is there a relationship between TV advertising and Sales? If so, what does the relationship look like? Explain the coefficient and R square.
+
+#### Your answer here
+
+#### Question 3:Can you plot the relationship between radio advertising and Sales? If so, please save it as fit1. What does the relationship look like? Explain the coefficients and R square.
+
+#### Your answer here
+
+#### Question 4:Can you plot the relationship between radio advertising (X1), TV advertising (X2), and Sales (Y)? If so, please save it as fit2. What does the relationship look like? Explain the coefficients and R square.
+
+#### Your answer here
+
+#### Question 4: Two things you learned from this session
+
+#### Your answer here
+
+
