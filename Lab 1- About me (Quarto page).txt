@@ -1,0 +1,50 @@
+---
+title: "About me"
+format: html
+editor: visual
+date: "2026-06-01"
+---
+
+## First, we will add an image to our page using the Markdown syntax ![alt text](image-path-or-URL).
+
+Since we are working in RStudio Cloud, specifying the full image path is not required. Instead, we can upload the image to RStudio Cloud and simply use the image's file name within the parentheses.
+
+### Image Syntax:
+
+The general form is ![alt text](image-path-or-URL).
+
+alt text: Describes the image for accessibility and fallback purposes. image-path-or-URL: Specifies where to find the image.
+
+### Use Case for Alt Text:
+
+Alt text improves accessibility for users who rely on screen readers or if the image cannot load. ![Word cloud - what do my students say about me based on the official teaching evaluations? (you may use an avatar or your profile image)](profile.png)
+
+## About me (elaborate a little bit)
+
+Hi, I’m a business student majoring () at CSUB. My current objectives is to (). My career goal is ().
+
+[Here is my website](utjimmyx.github.io) (please replace this one with yours if you have one)
+
+## Academic Background (elaborate a little bit)
+
+I’m currently pursuing () at CSUB.
+
+## Professional Background (elaborate a little bit)
+
+I have nearly () years of experience as () at().
+
+## Experience with Excel (elaborate a little bit)
+
+I have () prior experience with ()
+
+## Experience with R & Tableau (elaborate a little bit)
+
+I have () prior experience with ()
+
+## Experience with other analytic software (elaborate a little bit)
+
+I have () prior experience with ()
+
+## I wanted to become () until the end of the semester.
+
+## I would like to pursue a career in \_\_\_\_ as\_\_\_\_
