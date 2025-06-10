@@ -8,11 +8,11 @@ To help you get started, refer to the code and examples from the Lab 2 notebook,
 Think carefully about what type of chart (e.g., bar chart, line chart, scatter plot) best helps illustrate your findings and support your answer to the 
 business question.
 
-## Your final output that is published at rpubs.com (your portfolio) should include:
+## Your final output that is published at rpubs.com (your portfolio page) should include:
 
 A clear statement of your business question
 
-1-2 graphs created using ggplot2 that helps answer the question
+1-2 graphs created using ggplot2 that helps answer the questions
 
-A short explanation (2–4 sentences) interpreting the graph and how it addresses your business question
+A short explanation (2–4 sentences) interpreting the graph and how it addresses your business questions
 
