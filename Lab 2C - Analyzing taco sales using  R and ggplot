@@ -4,9 +4,13 @@ Once you have chosen your question, use the data visualization techniques introd
 In particular, apply your knowledge of how to create effective graphs using the ggplot2 package in R.
 
 ## Hint:
-To help you get started, refer to the code and examples from the Lab 2 notebook, where we practiced building different types of visualizations with ggplot2. 
+1. To help you get started, refer to the code and examples from the Lab 2 notebook, where we practiced building different types of visualizations with ggplot2. 
 Think carefully about what type of chart (e.g., bar chart, line chart, scatter plot) best helps illustrate your findings and support your answer to the 
 business question.
+
+2. If you have difficulty loading the dataset, you can use the following R syntax: 
+
+data <-read_csv('https://raw.githubusercontent.com/utjimmyx/workshop/master/taco.csv') 
 
 ## Your final output that is published at rpubs.com (your portfolio page) should include:
 
