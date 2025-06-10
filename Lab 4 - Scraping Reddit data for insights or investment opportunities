@@ -1,0 +1,11 @@
+## You will learn how to scrape Reddit data, export it to an Excel spreadsheet, and then build an interactive dashboard using Tableau
+
+### Scraping Reddit data using R
+#### choose a keyword you want to use for this exercise. 
+urls <- find_thread_urls(keywords="stock", sort_by="top")
+str(urls)
+write.csv(urls, "stocks.csv")
+
+### This video will show you How to Analyze Reddit Social Media data using Tableau: https://www.youtube.com/watch?v=vzx2nx8F2f0
+
+## For advanced users, please check my notebook on analyzing Reddit sentiments using R at rpubs.com/utjimmyx
