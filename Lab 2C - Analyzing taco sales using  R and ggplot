@@ -1,0 +1,18 @@
+## Using the taco data we used in day 1, please identify 1-2 meaningful and relevant business questions that you believe are important to explore. 
+This could relate to customer behavior, product performance, market trends, operational efficiency, or any other area of business interest.
+Once you have chosen your question, use the data visualization techniques introduced in Lab 2 to analyze and answer it. 
+In particular, apply your knowledge of how to create effective graphs using the ggplot2 package in R.
+
+## Hint:
+To help you get started, refer to the code and examples from the Lab 2 notebook, where we practiced building different types of visualizations with ggplot2. 
+Think carefully about what type of chart (e.g., bar chart, line chart, scatter plot) best helps illustrate your findings and support your answer to the 
+business question.
+
+## Your final output that is published at rpubs.com (your portfolio) should include:
+
+A clear statement of your business question
+
+1-2 graphs created using ggplot2 that helps answer the question
+
+A short explanation (2–4 sentences) interpreting the graph and how it addresses your business question
+
