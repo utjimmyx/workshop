@@ -1,0 +1,140 @@
+---
+title: "Business Analytics Mini-bootcamp - Summer 2025 (day 2) - Stock Market Data Analysis using quantmod and R"
+author: "Your Name, taught by Zhenning 'Jimmy' Xu, Ph.D."
+format: html
+editor: visual
+---
+
+## Introduction
+
+This Quarto notebook explores stock market data using R packages like `quantmod`, `PerformanceAnalytics`, and `tidyverse`. We analyze and visualize data for multiple tickers including QQQ, TSLA, NVDA, and AMZN.
+
+> **Context:** Tools like `quantmod` are widely used in algorithmic trading platforms and fintech firms. For example:
+>
+> - **Lemon Markets**, a European brokerage API platform, uses similar R-based or Python-based workflows to empower retail and institutional clients.
+> - **QuantInsti**, a leading training provider in algorithmic trading, uses packages like `quantmod` and `PerformanceAnalytics` in strategy design, backtesting, and risk analysis.
+
+```{r setup, include=FALSE}
+library(PerformanceAnalytics)
+library(quantmod)
+library(tidyverse)
+```
+
+## Load Stock Data
+```{r}
+
+QQQ <- getSymbols("QQQ", src = "yahoo", from = "2020-01-01", to = "2025-06-01", auto.assign = FALSE)
+TSLA <- getSymbols("TSLA", src = "yahoo", from = "2015-01-01", to = "2025-06-01", auto.assign = FALSE)
+NVDA <- getSymbols("NVDA", src = "yahoo", from = "2015-01-01", to = "2025-06-01", auto.assign = FALSE)
+```
+
+## Reflection Question:
+What are some advantages of using programmatic data collection (via getSymbols) over manually downloading CSV files from Yahoo Finance?
+
+## View Sample Data
+```{r}
+head(NVDA)
+```
+
+```{r}
+
+barChart(NVDA, name = "NVDA Volume Bar Chart")
+
+chartSeries(NVDA, type = "bar", theme = chartTheme("white"))
+chartSeries(NVDA, type = "line", theme = chartTheme("white"))
+chartSeries(NVDA, type = "candlesticks", theme = chartTheme("white"))
+```
+
+## Reflection Question:
+Explore each chart type. How do line, bar, and candlestick charts differ in the kind of information they emphasize?
+
+## Daily and Yearly Returns
+```{r}
+plot(dailyReturn(NVDA), main = "NVDA Daily Returns")
+plot(yearlyReturn(NVDA), main = "NVDA Yearly Returns")
+```
+
+## Discussion Idea:
+QuantInsti trains traders to analyze returns across multiple timeframes. Why might a yearly return plot give a different impression than a daily return plot?
+
+
+```{r}
+
+write.table(NVDA, file = "NVDA_stock.csv", row.names = FALSE, col.names = TRUE, sep = ",")
+```
+
+## Convert to Data Frame and Visualize
+```{r}
+
+NVDA_df <- data.frame(NVDA)
+NVDA_df$time <- index(NVDA)
+
+head(NVDA_df)
+
+## Do you still remember the ggplot functions we used yesterday?
+ggplot(NVDA_df, aes(x = time, y = NVDA.Adjusted)) +
+  geom_point() +
+  labs(title = "NVDA Adjusted Closing Price",
+       x = "Date", y = "Adjusted Price")
+```
+
+## Critical Thinking:
+Why might financial analysts prefer adjusted closing prices over raw closing prices when visualizing or modeling stock performance?
+
+## Technical Indicators: Bollinger Bands
+
+### What Are Bollinger Bands?
+Bollinger Bands are a technical analysis tool used to measure a stock’s price volatility and identify potential buying or selling opportunities.
+
+They consist of three lines:
+
+Middle Band: This is usually a simple moving average (SMA) — often a 20-day average.
+
+Upper Band: This is the middle band plus 2 standard deviations.
+
+Lower Band: This is the middle band minus 2 standard deviations.
+
+These bands move with the stock price and expand or contract based on how volatile the stock is.
+
+🧠 Why Use Bollinger Bands?
+They help answer questions like:
+
+Is the stock price relatively high or low compared to recent history?
+
+Is the stock entering a period of increased volatility?
+
+📌 How to Read Bollinger Bands
+When the price touches or moves above the upper band:
+→ The stock might be overbought (price could be too high).
+→ Some traders see this as a sell signal.
+
+When the price touches or falls below the lower band:
+→ The stock might be oversold (price could be too low).
+→ This could be a buy signal.
+
+```{r}
+AMZN <- getSymbols("AMZN", src = "yahoo", auto.assign = FALSE)
+
+chartSeries(AMZN, subset = 'last 3 months', theme = chartTheme("white"))
+addBBands(n = 20, sd = 2, maType = "SMA", draw = "bands", on = -1)
+```
+
+## Reflection:
+Bollinger Bands are popular in technical analysis. What kind of market behavior do the upper and lower bands signal? How might a quant fund use this indicator?
+
+## What is one key insight or skill you learned today? Briefly explain it in your own words.
+
+## What is one concept or tool from today’s session that you would like to apply in the future? Describe how you might use it.
+
+## References
+
+quantmod website: https://www.quantmod.com/
+
+10 great R packages for stock market data:https://dev.to/lemon-markets/10-great-r-packages-for-stock-market-data-1ocp  
+
+QuantInsti: Guide to quantmod: https://blog.quantinsti.com/a-guide-on-r-quantmod-package-how-to-get-started/
+
+chartSeries documentation: https://www.rdocumentation.org/packages/quantmod/versions/0.4.27/topics/chartSeries 
+
+Shorting strategy in R: https://blog.quantinsti.com/shorting-high-algo-trading-strategy-r/
+
