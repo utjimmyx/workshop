@@ -6,6 +6,8 @@ urls <- find_thread_urls(keywords="stock", sort_by="top")
 str(urls)
 write.csv(urls, "stocks.csv")
 
-### This video will show you How to Analyze Reddit Social Media data using Tableau: https://www.youtube.com/watch?v=vzx2nx8F2f0
+### What insights can you uncover from this dataset? Begin by discussing your observations with your peers, and try conducting an initial analysis using Excel.
+
+### This video will show you "How to Analyze Reddit Social Media data using Tableau": https://www.youtube.com/watch?v=vzx2nx8F2f0
 
 ## For advanced users, please check my notebook on analyzing Reddit sentiments using R at rpubs.com/utjimmyx
