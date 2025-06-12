@@ -9,6 +9,13 @@ The inputs allow us to interact with the app in real time.
 
 ## You can find out more about building applications with Shiny here: https://shiny.posit.co/
 
+## You can find a few Shiny apps I built here: 
+
+https://utjimmyx.shinyapps.io/bullwhip2/
+https://utjimmyx.shinyapps.io/jobs/
+https://utjimmyx.shinyapps.io/shinynlp/
+https://utjimmyx.shinyapps.io/ShinyBCLiquor/
+
 ## What are we going to build? 
 
 In this lab, you will learn to build a Taco Delivery Time Dashboard, which displays interactive insights into taco delivery time. 
@@ -157,3 +164,6 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
+
+6. Publish your app on a free server (https://posit.co/products/open-source/shiny-server/). You don't need to download anything. 
