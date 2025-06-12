@@ -6,7 +6,8 @@ Shiny apps can be hosted online and used on any device, making them especially u
 Every app consists of two parts: the user interface and the server.
 The user interface (or, briefly, UI) is a web page that you will see (often an HTML webpage).
 The inputs allow us to interact with the app in real time. 
-This is an advanced topic. You may read the following book if you want to develop more expertise on this topic: https://bookdown.org/pbaumgartner/learning-shiny/
+
+## Hint: This is an advanced topic. You may read the following book if you want to develop more expertise on this topic: https://bookdown.org/pbaumgartner/learning-shiny/
 
 ## You can find out more about building applications with Shiny here: https://shiny.posit.co/
 
