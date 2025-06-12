@@ -7,6 +7,8 @@ Every app consists of two parts: the user interface and the server.
 The user interface (or, briefly, UI) is a web page that you will see (often an HTML webpage).
 The inputs allow us to interact with the app in real time. 
 
+## You can find out more about building applications with Shiny here: https://shiny.posit.co/
+
 ## What are we going to build? 
 
 In this lab, you will learn to build a Taco Delivery Time Dashboard, which displays interactive insights into taco delivery time. 
@@ -27,7 +29,22 @@ business question.
 
 data <-read_csv('https://raw.githubusercontent.com/utjimmyx/workshop/master/taco.csv') 
 
-3. The syntax for step one is featured below (notice how you can get started without deep expertise in programming). Try to run the app to see the changes on a live HTML page. 
+3. The syntax for step one is featured below (notice how you can get started without deep expertise in programming). 
+Try to run the app to see the changes on a live HTML page. 
+library(shiny)
+
+ui <- fluidPage(
+  
+  titlePanel("Taco Delivery Analysis")
+)
+  
+  server <- function(input, output) {}
+  
+  shinyApp(ui = ui, server = server)
+
+4. The syntax for step two is featured below (notice how you can get started without deep expertise in programming). 
+Try to run the app to see the changes on a live HTML page. 
+
 library(shiny)
 library(dplyr)
 library(ggplot2)
@@ -57,7 +74,7 @@ server <- function(input, output) {}
 
 shinyApp(ui = ui, server = server)
 
-4. In this step, you will build your final app using a few packages like ggplot2, dplyr, and plotly. You can find the official guidance for these packages at posit.co.
+5. In this step, you will build your final app using a few packages like ggplot2, dplyr, and plotly. You can find the official guidance for these packages at posit.co.
 
 Notice the changes you made from step 3 to step 4. Try to run the app to see the changes on a live HTML page. 
 
