@@ -1,8 +1,14 @@
 R Shiny is a powerful web application framework for R that allows users to build interactive dashboards and data-driven apps.
 With Shiny, data scientists and analysts can easily turn their analyses into shareable web applications.
 Shiny apps can be hosted online and used on any device, making them especially useful for reporting, dashboards, and user-driven data exploration.
+Every app consists of two parts: the user interface and the server.
+The user interface (or, briefly, UI) is a web page that you will see (often an HTML webpage).
+The inputs allow us to interact with the app in real time. 
+
+## What are we going to build? 
 
 In this lab, you will learn to build a Taco Delivery Time Dashboard, which displays interactive insights into taco delivery time. 
+You can find the live app here on this page: https://nb97v6-zhenning-xu.shinyapps.io/taco/
 
 ## Your final output that is published at rpubs.com (your portfolio page) will include:
 
