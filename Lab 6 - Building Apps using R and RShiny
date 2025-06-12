@@ -1,0 +1,134 @@
+R Shiny is a powerful web application framework for R that allows users to build interactive dashboards and data-driven apps.
+With Shiny, data scientists and analysts can easily turn their analyses into shareable web applications.
+Shiny apps can be hosted online and used on any device, making them especially useful for reporting, dashboards, and user-driven data exploration.
+
+In this lab, you will learn to build a Taco Delivery Time Dashboard, which displays interactive insights into taco delivery time. 
+
+## Your final output that is published at rpubs.com (your portfolio page) will include:
+
+### your name under the title section
+
+### a live app that allows viewers to check the delivery time on their own
+
+## Hint:
+1. To help you get started, refer to the code below, where you will see how to build the Shiny App step by step. 
+Think carefully about what type of chart (e.g., bar chart, line chart, scatter plot) best helps illustrate your findings and support your answer to the 
+business question.
+
+2. If you have difficulty loading the dataset, you can use the following R syntax: 
+
+data <-read_csv('https://raw.githubusercontent.com/utjimmyx/workshop/master/taco.csv') 
+
+3. The syntax for step one is featured below (notice how you can get started without deep expertise in programming). Try to run the app to see the changes on a live HTML page. 
+library(shiny)
+library(dplyr)
+library(ggplot2)
+
+taco <- read.csv("https://raw.githubusercontent.com/utjimmyx/workshop/master/taco.csv", stringsAsFactors = FALSE)
+
+ui <- fluidPage(
+  
+  titlePanel("Taco Delivery Analysis"),
+  
+  sidebarPanel(
+    
+    selectInput("taco_type", "Choose a taco type", 
+                choices = c("Chicken Taco", "Beef Taco", "Pork Taco", "Veggie Taco")),
+    
+    sliderInput("price", "Price range", min = 3, max = 15, value = c(4, 8))
+    
+  ),
+  
+  mainPanel(
+    
+  )
+  
+)
+
+server <- function(input, output) {}
+
+shinyApp(ui = ui, server = server)
+
+4. In this step, you will build your final app using a few packages like ggplot2, dplyr, and plotly. You can find the official guidance for these packages at posit.co.
+
+Notice the changes you made from step 3 to step 4. Try to run the app to see the changes on a live HTML page. 
+
+Hint: You can use AI to help you check your syntax or describe how different functions work. 
+
+### The syntax for this step is featured below:
+
+library(shiny)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+taco <- read.csv("https://raw.githubusercontent.com/utjimmyx/workshop/master/taco.csv", stringsAsFactors = FALSE)
+
+
+ui <- fluidPage(
+  
+  titlePanel("CSUB - Business Analytics Mini-bootcamp - Taco Delivery Analysis - taught by Dr. Zhenning Xu"),
+  titlePanel(tags$a("R Shiny Tutorial & Syntax",href="https://github.com/utjimmyx/workshop")),
+  
+  sidebarPanel(
+    
+    selectInput("taco_type", "Choose a taco type", 
+                choices = c("Chicken Taco", "Beef Taco", "Pork Taco", "Veggie Taco")),
+    
+    sliderInput("price", "Price range", min = 3, max = 10, value = c(4, 8))
+    
+  ),
+  
+  mainPanel(
+    
+    textOutput("count"),
+    
+    br(),
+    
+    plotlyOutput("chart")
+    
+  )
+  
+)
+
+server <- function(input, output) {
+  
+  taco_filtered <- reactive({
+    
+    taco %>% filter(Taco_Type == input$taco_type,
+                    Price >= input$price[1],
+                    Price <= input$price[2])
+    
+  })
+  
+  entries <- reactive({
+    
+    nrow(taco_filtered())
+    
+  })
+  
+  output$count <- renderText({
+    
+    paste0("Number of orders: ", entries())
+    
+  })
+  
+  output$chart <- renderPlotly({
+    
+    p <- ggplot(taco_filtered(), aes(Delivery_Duration)) +
+      geom_histogram(fill = "lightblue", color = "white", bins = 10) +
+      xlab("Delivery Duration (minutes)") +
+      ylab("# of orders") +
+      theme_minimal() +
+      labs(title = "Delivery Duration Distribution",
+           subtitle = paste0("Taco Type: ", input$taco_type)) +
+      theme(plot.title = element_text(size = 17, hjust = 0.5, face = "bold"),
+            plot.subtitle = element_text(size = 14, hjust = 0.5))
+    
+    ggplotly(p, width = 500, height = 400)
+    
+  })
+  
+}
+
+shinyApp(ui = ui, server = server)
